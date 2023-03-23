@@ -33,15 +33,60 @@ class Category {
   }
 };
 
+class Foods extends Products {
+  public $pietanza;
+  public $scadenza;
+  public function __construct (string $_name, Category $_category, float $_price, int $_quantity, string $_pietanza, string $_scadenza) {
+    parent::__construct ($_name, $_category, $_price, $_quantity);
 
-$prova = new Products (
-  "ciao", 
+    $this->pietanza = $_pietanza;
+    $this->scadenza = $_scadenza;
+  }
+};
+
+class Games extends Products {
+  public $materiale;
+  public function __construct (string $_name, Category $_category, float $_price, int $_quantity, string $_materiale) {
+    parent::__construct ($_name, $_category, $_price, $_quantity);
+
+    $this->materiale = $_materiale;
+  }
+};
+
+class Houses extends Products {
+  public $materiale;
+  public $grandezza;
+  public function __construct (string $_name, Category $_category, float $_price, int $_quantity, string $_materiale, string $_grandezza) {
+    parent::__construct ($_name, $_category, $_price, $_quantity);
+
+    $this->materiale = $_materiale;
+    $this->grandezza = $_grandezza;
+  }
+};
+
+
+
+$pallinaDiLana = new Games (
+  "Palla di lana", 
   new Category (
   "GATTO"
   ),
   15.00,
-  7
+  7,
+  "lana",
 );
 
-var_dump($prova);
+$cucciaCane = new Houses (
+  "Cuccia per cane",
+  new Category (
+    "Cane"
+  ),
+  70.99,
+  3,
+  "plastica",
+  "30x20x70"
+);
+
+var_dump($pallinaDiLana);
+var_dump($cucciaCane)
 ?>
